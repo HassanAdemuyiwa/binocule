@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import ReactMapGL, { Maker }from 'react-map-gl';
+import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
+import { Form, FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText, Media, Navbar, Container, CardImg,Card }from 'reactstrap';
+import time from './icons/Group 13502.svg';
+import search from './icons/searching-magnifying-glass.svg';
+import slogo from './icons/Group 11652.svg';
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -21,14 +26,37 @@ function App() {
 
 
   return (
-    <div>
+    <MobileView>
+     
+       
+    
       <ReactMapGL {...viewport} mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       mapStyle= "mapbox://styles/binocule/ckb15bubn1en51iliqpwtmabm"
       onViewportChange= {viewport => { setViewport(viewport);}}>
-         makers here
+      <Container className='themed-container'>
+          <Navbar>
+            <Card>
+            <InputGroup>
+            <InputGroupAddon addonType="prepend">
+            <img width="100%" src={slogo} alt="slogo" />
+            </InputGroupAddon>
+            <Input placeholder="Search" />
+            <InputGroupAddon addonType="append">
+              <img width="100%" src={search} alt="search" />
+              <img width="100%" src={time} alt="time" />
+  
+            </InputGroupAddon>
+            </InputGroup>
+            </Card>
+        </Navbar>
+
+      </Container>  
+
+
       </ReactMapGL>
 
-    </div>
+   
+    </MobileView>
   );
 }
 
