@@ -18,7 +18,6 @@ render(){
 
     return(
 
-
         <Container>
         <Row className="btn-container">
             <Col>
