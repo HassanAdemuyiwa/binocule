@@ -1,23 +1,26 @@
-import React from 'react';
-import Form from 'reactstrap';
+import React from "react";
+// import Form from 'reactstrap';
+import { Input, InputGroup, InputGroupAddon, Container } from "reactstrap";
+import time from "../icons/Group 13502.svg";
+import search from "../icons/searching-magnifying-glass.svg";
+import slogo from "../icons/Group 11652.svg";
+import "../styles.css";
 
-const SearchBar = ({keyword,setKeyword}) => {
-  const BarStyling = {width:"20rem",background:"#F2F1F9", border:"none", padding:"0.5rem"};
+const SearchBar = () => {
   return (
-    <Form>
-
-    <input 
-        style={BarStyling}
-        key="random1"ya
-        value={keyword}
-        placeholder={"search country"}
-        onChange={(e) => setKeyword(e.target.value)}
-        />
-        
-    </Form>
-    
-
+    <Container className="themed-container ">
+      <InputGroup className="search-bar">
+        <InputGroupAddon addonType="prepend">
+          <img width="100%" src={slogo} alt="slogo" />
+        </InputGroupAddon>
+        <Input placeholder="Find places, activities" className="search" />
+        <InputGroupAddon addonType="append">
+          <img width="100%" src={search} alt="search" />
+          <img width="100%" src={time} alt="time" />
+        </InputGroupAddon>
+      </InputGroup>
+    </Container>
   );
-}
+};
 
-export default SearchBar
+export default SearchBar;
