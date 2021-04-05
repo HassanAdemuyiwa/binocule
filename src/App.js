@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import ReactMapGL, { Maker } from "react-map-gl";
+import React from "react";
+import ReactMapGL from "react-map-gl";
 import { MobileView } from "react-device-detect";
-import SearchBar from "./components/SearchBar";
-import AddButton from "./components/AddButton";
-import Layout from "./components/Layout"
+import { ThemeProvider } from '@material-ui/styles'
+import theme from './components/Theme';
+import Header from './components/Header';
+import ActionButtons from "./components/ActionButtons";
+
 
 function App() {
   const [viewport, setViewport] = React.useState({
@@ -13,6 +15,7 @@ function App() {
     width: "100vw",
     zoom: 10,
   });
+
 
   return (
     <MobileView>
@@ -24,12 +27,14 @@ function App() {
           setViewport(viewport);
         }}
       >
-        <Layout>
-        <SearchBar />
-        <AddButton />
-        </Layout>
-        
-       
+      <ThemeProvider theme={theme}>
+         
+          <Header/>
+          <ActionButtons />
+
+      </ThemeProvider>
+      
+
       </ReactMapGL>
     </MobileView>
   );
