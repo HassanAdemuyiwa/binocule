@@ -37,7 +37,9 @@ const useStyles = makeStyles((theme) => ({
   },
   heading:{
     ...theme.typography.head,
-    marginLeft: "20px"
+    marginLeft: "20px",
+    marginBottom: "50px",
+    marginTop:'15px'
   },
   subheading:{
     ...theme.transitions.subhead,
@@ -109,7 +111,7 @@ export default function ActionButtons(props) {
           <ListItemText>
             <Grid container >
               <Grid item xs={3} className={classes.listIcon}>
-                <img alt='safety things' src={Things}/>
+                <img alt='safety things' src={Places}/>
               </Grid>
               <Grid item xs={9}>
                   <div> <h5 className={classes.subheading}>Safety places </h5><p>Hospital, police station, fire station</p></div>
